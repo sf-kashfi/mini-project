@@ -1,0 +1,681 @@
+$green: #00a650;
+$yellow: #ffcb05;
+$white: white;
+$p-link: rgba(0, 0, 0, 0.671);
+$line-color: rgba(165, 165, 165, 0.747);
+$back-color: rgba(128, 128, 128, 0.171);
+$p-line-height: 10px;
+
+
+@mixin padding {
+    padding: 0% 5%;
+}
+
+@mixin font($color: $green, $weight: bold) {
+    color: $color;
+    font-weight: $weight;
+}
+
+@mixin border($size, $color, $radius: 2px) {
+    border: $size solid $color;
+    border-radius: $radius
+}
+
+@mixin dots-of-owl($color) {
+    button.owl-dot:hover,
+    button.owl-dot.active{
+        span{
+            background: $color;
+        }
+    }
+}
+
+@mixin length-of-div($color: $back-color) {
+    height: 100%;
+    background-color: $color;
+}
+
+
+.head-title{
+    color: $green;
+    text-align: center;
+    border-bottom: 2px solid $green;
+    
+    h3{
+        font-weight: bold;
+    }
+}
+
+
+.bottom-title{
+    color: $green;
+    text-align: left;
+    border-top: 2px solid $line-color;
+    :hover{
+        @include font($color: $yellow);
+    }
+}
+
+.link{
+    ul{
+        margin-top: 25px;
+        li{
+            line-height: 38px;
+        }
+
+        a{
+            color: $p-link;
+        }
+
+        a:hover{
+            @include font( );
+            text-decoration: unset;
+        }
+    }
+}
+
+
+.owl-nav{
+    .owl-prev, .owl-next{
+        span{
+        
+        }
+
+        span[aria-label]{
+            position: absolute;
+            top: 100px;
+            font-size: 10vw;
+            color: rgba(128, 128, 128, 0.616);
+        }
+
+        span[aria-label=Previous]{
+            right: -5%;
+        }
+
+        span[aria-label=Next]{
+            left: -5%;
+        }
+
+        span[aria-label]:hover{
+            color: $yellow;
+        }
+    }
+}
+
+
+body{
+    font-family: 'B Nazanin';
+    background-color: white;
+}
+
+
+
+.logo{
+    @include padding;
+
+    h3{
+        @include font();          
+        display: inline;
+    }
+
+    div{
+        #left{
+            direction: ltr;
+            h5{
+                @include font($weight: unset);
+                display: inline;
+            }
+        }
+    }
+
+    .glyphicon-search{
+        @include border($size: 3px, $color: $yellow);
+        background-color: $yellow;
+        color: $white;
+    }
+
+}
+
+
+.nav{
+    background-color: $green;
+
+    .open > a, .open > a:focus, .open > a:hover{
+        background-color: red;
+    }
+
+    div.col-xs-12{
+        @include padding;
+
+        nav{
+            height: 0px;    
+    
+            button.navbar-toggle{
+                float: right;
+                >span.icon-bar{
+                    background: $yellow;
+                    width: 50px;
+                    height: 4px;
+                }
+            }
+    
+            div.collapse{
+                ul.nav{
+                    li{
+                        a{
+                            font-size: 18px;
+                            font-weight: bold;
+                            color: $white;
+    
+                            @media screen and (max-width: 991px){
+                                font-size: 11px;
+                            }
+                       }
+    
+                        a:hover{
+                            border-bottom: 4px solid $yellow;
+                            background-color: unset;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+
+
+.album{
+    div.owl-carousel{
+        background-color: $back-color;
+            
+        div.item{
+            div.on-pic{
+                position: absolute;
+                background-color: #00a650ce;
+                @include border($size: 10px,$color:rgba(0, 166, 80, 0.671), $radius: 6px);
+                bottom: 100px;
+                left: 200px;
+                font-size: 50px;
+
+                h4{
+                    @include font($color: black );
+                }
+
+                h3{
+                    @include font($color: $white);
+                }
+
+                @media screen and (max-width: 991px){
+                    @include border($size: 1px,$color: rgba(0, 166, 80, 0.671),$radius: 3px);
+                    position: inherit;
+                }
+            }
+        }
+
+        div.owl-dots{
+            position: absolute;
+            bottom: 20px;
+            left: 213px;
+
+            @media screen and (max-width: 991px){
+                bottom: 1px;
+                left: 40px;
+            }
+
+            @media screen and (max-width: 767px){
+                bottom: 5px;
+                left: 40px;
+            }
+
+            @include dots-of-owl($color: $yellow);
+        }
+    }
+}
+
+
+
+.second{
+    @include padding;
+    background-color: $back-color;
+
+    div.col-xs-12{
+        .second-head{
+            @extend .head-title;
+        }
+        
+        .owl-carousel{
+            .item{
+                div{
+                    background-color: $white;
+                    height: 170px;
+                    border: 1px solid rgba(128, 128, 128, 0.801);
+                    padding: 5%;
+                    
+                    h5{
+                        font-weight: bold;
+                        color: $green;
+                    }
+                }
+            }
+
+            @extend .owl-nav;
+
+            
+        }
+
+    
+        button{
+            display: block;
+            margin: auto;
+            background: unset;
+            @include border($size: 2px,$color: $green,$radius: 3px);
+            @include font( );
+            padding: 1% 5%;
+        }
+
+        button:hover{
+            background-color: $yellow;
+            font-size: 150%;
+        }
+    }
+}
+
+
+
+.third{
+    @include padding;
+
+    .col-md-4{
+        margin-top: 40px;
+        height: 340px;
+        
+        .events{
+            @include length-of-div;
+       
+            
+                
+    
+                
+    
+                .head{
+                    @extend .head-title;
+                    text-align: start;
+                }
+    
+                ul{
+                    height: 280px;  
+                    
+                }
+        
+                @extend .link;
+        
+                .bottom{
+                    @extend .bottom-title;
+                }
+            
+        }
+    
+        .anounce{
+            @include length-of-div;
+
+                
+    
+                nav{
+                    ul{
+                        border-bottom: 2px solid $green;
+                        list-style-type: none;
+        
+                        li{
+                            h3{
+                                @include font($color: gray,$weight: unset);
+                            }
+                            
+                            display: inline-block;
+                            cursor: pointer;
+                            transition: all .3s ease-in-out;
+                        }
+        
+                        li:not(:last-of-type){
+                            border-left: 1px solid $line-color;
+                            padding-left: 9px;
+                            padding-top: -40px;
+                            padding-bottom: -40px;
+                        }
+        
+                        li:not(:first-of-type){
+                            padding-right: 9px;
+                        }
+        
+                        li.inactive{
+                            h3{
+                                @include font($color: $green);
+                            }
+                        }
+                    }
+                }
+        
+                .tabs{
+                    height: 280spx;
+    
+                    
+    
+                    @extend .link;
+        
+                    div:not(:first-of-type){
+                        display: none;
+                    }
+                }
+        
+                .bottom{
+                    @extend .bottom-title;
+                }
+            
+    
+        }
+    
+        .lectures{
+            @include length-of-div;
+
+                
+    
+                .head{
+                    @extend .head-title;
+                    text-align: start;
+                }
+    
+                .owl-carousel{
+                    height: 280px;
+    
+                    .item{
+                        .video-container{
+                            position: relative;
+                            height: 0;
+                            padding-bottom: 56.25%;
+                            padding-top: 10px;
+                        }
+        
+                        .video-container > * {
+                            position: absolute;
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+    
+                    @include dots-of-owl($color: $green);
+                }
+        
+                .bottom{
+                    @extend .bottom-title;
+                }
+            
+    
+        }
+
+        @media screen and (max-width: 991px){
+            height: auto;
+        }
+
+    }
+
+    
+}
+
+
+
+.forth{
+    background-color: $yellow;
+    @include padding;
+    margin-top: 80px;
+
+
+    .head{
+        @extend .head-title;
+    }
+
+    .owl-carousel{
+        margin-top: 12px;
+
+        .item{
+            padding: 15%;
+            text-align: center;
+            img{
+                margin-bottom: 20px;
+            }
+
+            :not(img){
+                line-height: $p-line-height;
+            }
+        }
+
+        @extend .owl-nav;
+        .owl-nav{
+            span[aria-label]{
+                top: 50px;
+            }
+            span[aria-label]:hover{
+                color: $green;
+            }
+        }
+    }
+
+    .bottom{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+
+        button{
+            display: inline-block;
+            margin-bottom: 40px;
+            background: unset;
+            @include border($size: 2px,$color: $green,$radius: 3px);
+            @include font( );
+            padding: 1% 5%;
+        }
+
+        button:first-child{
+            margin-left: 15px;
+        }
+
+        button:last-child{
+            margin-right: 15px;
+        }
+    }
+
+    
+
+    button:hover{
+        background-color: $green;
+        color: $yellow;
+        font-size: 150%;
+    }
+}
+
+
+
+.fifth{
+    @include padding;
+
+    .col-md-6{
+        margin-top: 40px;
+        height: 380px;
+
+        .links{
+            @include length-of-div;
+
+            .head{
+                @extend .head-title;
+                text-align: start;
+            }
+
+            .inside{
+                @extend .link;
+
+               
+            }
+        }
+
+        .jobs{
+            @include length-of-div;
+
+            .head{
+                @extend .head-title;
+                text-align: start;
+            }
+
+            .inside{
+                height: 260px;
+                @extend .link;
+            }
+
+            .bottom{@extend .bottom-title;}
+        }
+
+
+        @media screen and (max-width: 395px){
+            .links,.jobs{
+                
+                .inside{
+                    height: auto;
+                    ul{
+                        li{
+                            line-height: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.sixth{
+    @include padding;
+    background-color: rgba(1, 17, 2, 0.767);
+    margin-top: 80px;
+
+    .col-md-6{
+        height: 300px;
+
+        .col-sm-6{
+
+            .head{
+                @extend .head-title;
+                text-align: start;
+                color: $white;
+                border-color: $line-color;
+            }
+
+            .inside{
+                @extend .link;
+                ul{
+                    margin-top: 15px;
+                    li{
+                        a{
+                            color: rgb(201, 201, 201);
+                        }
+                    }
+                }
+            }
+
+            .stru{}
+
+            .acce{}
+
+            .info{
+                .inside{
+                    margin-top: 14px;
+                    p{
+                        color: rgb(201, 201, 201);
+                        line-height: 30px;
+                    }
+                }
+            }
+
+            .pict{
+                .head{
+                    visibility: hidden;
+                }
+                .inside{
+                    h4{
+                        text-align: center;
+                        @include font();
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.last{
+    @include padding;
+    background-color: $green;
+    height: 100px;
+    .col-md-6{
+        margin-top: 2vw;
+    }
+    .right{
+        @include font($color: $white);
+    }
+    .left{
+        @include font($color: rgba(1, 17, 2, 0.767));
+    }
+    p,img{
+        display: inline-block;
+    }
+
+    @media screen and (max-width: 991px){
+        height: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 991px){
+    h3{
+        font-size: 18px;
+    }
+
+    h4{
+        font-size: 12px;
+    }
+
+    h5{
+        font-size: 10px;
+    }
+    
+}
+
+
+
+@media screen and (max-width: 767px){
+    h3{
+        font-size: 15px;
+    }
+
+    h4{
+        font-size: 11px;
+    }
+
+    h5{
+        font-size: 9px;
+    }
+    
+}
+
+
+
+
+
